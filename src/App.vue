@@ -1,17 +1,17 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <TheMultiselect/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TheMultiselect from './components/TheMultiselect.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    TheMultiselect
   }
 }
 </script>

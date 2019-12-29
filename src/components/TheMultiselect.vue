@@ -3,6 +3,7 @@
     :value="value"
     :options="options"
     :is-add-tag="true"
+    :is-change-color="true"
   />
 </template>
 

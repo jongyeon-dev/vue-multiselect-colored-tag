@@ -1,5 +1,6 @@
 <template>
   <multiselect
+    v-color="isChangeColor"
     v-model="currentValue"
     :options="currentOptions"
     :multiple="true"
@@ -18,9 +19,30 @@
 
 <script>
 import Multiselect from 'vue-multiselect'
+import * as constants from '../../../components/constants/tagsColor'
 
 export default {
   name: 'BaseMultiselect',
+  directives: {
+    color: {
+      update: function () {
+        const tag = 'multiselect__tag'
+        const tagWrapper = document.getElementsByClassName(tag)
+        setTimeout(() => {
+          let newTagsList = []
+          for (let i = 0; i < tagWrapper.length; i++) {
+            let tag = {
+              name: tagWrapper[i].innerText,
+              background: constants.TAGS_RANGE_COLOR[i + 1]
+            }
+            tagWrapper[tagWrapper.length - 1].style.backgroundColor = tag.background
+            newTagsList.push(tag)
+          }
+          return newTagsList
+        }, 100)
+      }
+    }
+  },
   components: {
     Multiselect
   },
@@ -38,6 +60,11 @@ export default {
       default: function () {
         return []
       }
+    },
+    isChangeColor: {
+      type: Boolean,
+      required: false,
+      default: false
     },
     isAddTag: {
       type: Boolean,

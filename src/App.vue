@@ -24,5 +24,11 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  h1, h2, h3, p {
+    margin: 10px 0;
+  }
+  p {
+    font-size: 16px;
+  }
 }
 </style>
